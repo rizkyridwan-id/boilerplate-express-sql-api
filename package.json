@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.11",
+    "@types/helmet": "^4.0.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.10.3",
+    "@types/node": "^14.14.32",
+    "@types/swagger-ui-express": "^4.1.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "joiful": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment-timezone": "^0.5.33",
+    "mongoose": "^5.11.19",
+    "node-cache": "^5.1.2",
+    "reflect-metadata": "^0.1.13",
+    "regenerator-runtime": "^0.13.7",
+    "swagger-ui-express": "^4.1.6",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "winston": "^3.3.3"
+  },
+  "name": "washly-final-be",
+  "version": "1.0.0",
+  "main": "./src/server.ts",
+  "scripts": {
+    "live": "nodemon",
+    "start": "ts-node ./src/server.ts",
+    "dev": "ts-node ./dist/server.js",
+    "build": "tsx -p ."
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
