@@ -9,7 +9,7 @@ class UserRoutes extends RouteBase {
 
   getRoutes() {
     this.buildRoute("/user/get/all", "get", "getUsers");
-
+    this.buildRoute("/user/post", "post", "postUser")
     return this.routes
   }
 }

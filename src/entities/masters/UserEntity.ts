@@ -1,34 +1,18 @@
-import { Schema, model } from "mongoose";
+import database from "../../config/DataBase"
 import * as jf from "joiful";
-import NamesEntity from "../NamesEntity";
+import { DataTypes } from "sequelize";
 
 export class User {
   constructor() {
-    const tableName = new NamesEntity().masterUser();
-    const userSchema = new Schema({
-      email: {
-        type: String,
-        required: true,
-        unique: true
-      },
-      username: {
-        type: String,
-        required: true,
-        unique: true
-      },
-      password: {
-        type: String,
-        required: true
-      },
-      level: String,
-      input_by: String,
-      input_date: Date,
-      edit_by: String,
-      edit_date: Date
-    });
+    const sequelize = database.connect();
+    const user = sequelize.define('users', {
+      'user_id': DataTypes.STRING,
+      'user_name': DataTypes.STRING,
+      'password': DataTypes.STRING,
+      'name': DataTypes.STRING,
+    })
 
-    const User = model(tableName, userSchema, tableName);
-    return User;
+    return user
   }
 }
 

@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+import {Sequelize} from "sequelize";
 
 class DataBase {
   private urlDb: any;
@@ -11,29 +12,21 @@ class DataBase {
     this.urlDb = urlDb;
     this.logger = logger;
 
-    this.connect();
+    DataBase.connect()
   }
 
-  async connect() {
-    const optionConnClient = {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-      useUnifiedTopology: true,
-      retryWrites: true
-    };
+  static connect() {
+    const sequelize = new Sequelize('db_test_sequelize', 'root', '', {
+      host: 'localhost',
+      dialect: 'mysql',
+      pool: {
+          max: 5,
+          min: 0,
+          idle: 10000
+      }
+    });
 
-    await mongoose.connect(this.urlDb, optionConnClient)
-      .then(() => {
-        this.logger.info("Success connect to database.\n      Cluster status: Cluster Activated - 3 Databases is Running");
-      })
-      .catch((err) => {
-        throw new Error(`ERROR DATABASE: ${err}`);
-      });
-  }
-
-  getDb() {
-    return mongoose;
+    return sequelize
   }
 }
 
